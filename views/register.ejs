@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    
+</head>
+
+<body>
+	<%-include("./common/navbar")%>
+	<div class="conatiner">
+		<div class="row justify-content-center">
+			<div class="col d-flex justify-content-center">
+				<div class="form-cont rounded">
+    
+					<h5 class="bg-info text-white p-2">Register Form</h5>
+				
+					
+						<div class="alert alert-success alert-dismissible fade show" role="alert" id="success_alert">
+							<strong>Message!</strong>
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							  <span aria-hidden="true">&times;</span>
+							</button>
+						  </div>
+				
+     <form  id="myform" action="/register" method="POST">
+     	
+
+	 	 <div class="form-row  align-items-center my-3">
+	 	 	<label class="col-md-5">Name:</label>
+			<input type="text" name="username" class="form-control col-md-7" id="user-name" placeholder="Type name">
+			<%if(typeof registerError !="undefined"){%>
+				<%if(typeof registerError.username !="undefined"){%>
+			        <p class="offset-md-5 col-md-7"><%=registerError.username.msg%></p>
+			<%}%>
+
+			<%}%>
+		 </div>
+
+
+
+		 
+
+		
+
+		 
+
+		 	<div class="col-7  offset-5">
+		 	<button class="btn btn-info">Submit</button>
+		 	</div>
+
+		 	
+		 </div>
+
+
+
+
+
+	 </form>
+	 </div>
+
+
+			</div>
+		</div>
+	</div>
+	<%-include('./common/footer')%>
+	<script src="/js/jquery.js">
+	
+
+    </script>
+    <script src="/js/bootstrap.min.js">
+	
+
+    </script>
+     <script src="/js/script.js">
+       
+	</script>
+	<script src="/js/submit.js">
+       
+    </script>
+
+
+
+</body>
+</html>

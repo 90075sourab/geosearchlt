@@ -1,0 +1,126 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="colorlib.com">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <%-include("./common/navbar")%>
+
+    <div class="s01">
+      <form action="" method="POST">
+        <fieldset>
+          <legend>Discover the Amazing City</legend>
+        </fieldset>
+        <div class="inner-form">
+          <div class="input-field first-wrap">
+            
+            <%if(typeof searchField !='undefined'){%>
+              <%if(typeof searchField.s_name!='undefined'){%>
+                <input id="search" type="text" placeholder="Type person name" name="s_name" value="<%=searchField.s_name%>"/>
+                <%}else{%>
+              
+            <input id="search" type="text" placeholder="Type person name" name="s_name" />
+              <%}%>
+            <%}else{%>
+              <input id="search" type="text" placeholder="Type person name" name="s_name" />
+              <%}%>
+
+            <%if(typeof searchError !='undefined'){%>
+              <%if(typeof searchError.s_name !='undefined'){%>
+            <p class="text-white mt-2 pl-1"><%=searchError.s_name.msg%></p>
+            <%}%>
+            <%}%>
+          </div>
+          <div class="input-field second-wrap">
+            <%if(typeof searchField!='undefined'){%>
+            <%if(typeof searchField.s_location!='undefined'){%>
+            <input id="location" type="text" placeholder="location" name="s_location" value="<%=searchField.s_location%>"/>
+            <%}else{%>
+              <input id="location" type="text" placeholder="location" name="s_location"/>
+              <%}}else{%>
+                <input id="location" type="text" placeholder="location" name="s_location"/>
+                <%}%>
+
+
+            <%if(typeof searchError !='undefined'){%>
+              <%if(typeof searchError.s_location !='undefined'){%>
+            <p class="text-white mt-2 pl-1"><%=searchError.s_location.msg%></p>
+            <%}%>
+            <%}%>
+          </div>
+          <div class="input-field third-wrap">
+            <button class="btn-search" type="submit">Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <%if(typeof searchData!= 'undefined' && searchData.length>0){%>
+    <div class="container">
+        <div class="row justify-content-center">
+          
+            <div class="col-md-10">
+                <h1 class="text-center py-4">Results</h1>
+            </div>
+            <div class="col-10 py-5">
+                <table class="table">
+                    <thead class="thead-dark table-resposive">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                      <%searchData.forEach(function(data){%>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td><%=data.name%></td>
+                          <td>@...</td>
+                          <td>@...</td>
+                        </tr>
+                        
+                        
+                        <%})%>
+                        
+                       
+
+                        
+                      
+                    
+                    </tbody>
+                  </table>
+                  
+            </div>
+        </div>
+    </div>
+    <%}else{%>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-10 p-5 m-5 bg-light">
+      <h4 class="text-center">No Result</h4>
+
+    </div>  
+  </div>
+  
+  
+</div>
+      <%}%>
+    <%-include('./common/footer')%>
+    <script src="/js/jquery.js">
+	
+
+    </script>
+    <script src="/js/bootstrap.min.js">
+	
+
+    </script>
+  </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
