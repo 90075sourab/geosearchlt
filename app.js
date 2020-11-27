@@ -21,4 +21,4 @@ app.use("/",route.search)
 
 
 conn.on('connected',()=>console.log("mongoose connected"));
-app.listen(8000,()=>console.log("server is running"));
+app.listen(process.env.PORT||8000,()=>console.log("server is running"));
